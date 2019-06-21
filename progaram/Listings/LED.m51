@@ -1,0 +1,263 @@
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                    06/22/2019  01:21:18  PAGE 1
+
+
+BL51 BANKED LINKER/LOCATER V6.22.2.0, INVOKED BY:
+D:\GONGJU\KEIL_V5\C51\BIN\BL51.EXE .\Objects\STARTUP.obj, .\Objects\led.obj TO .\Objects\LED PRINT (.\Listings\LED.m51) 
+>> RAMSIZE (256)
+
+
+MEMORY MODEL: SMALL
+
+
+INPUT MODULES INCLUDED:
+  .\Objects\STARTUP.obj (?C_STARTUP)
+  .\Objects\led.obj (LED)
+  D:\GONGJU\KEIL_V5\C51\LIB\C51S.LIB (?C_INIT)
+
+
+LINK MAP OF MODULE:  .\Objects\LED (?C_STARTUP)
+
+
+            TYPE    BASE      LENGTH    RELOCATION   SEGMENT NAME
+            -----------------------------------------------------
+
+            * * * * * * *   D A T A   M E M O R Y   * * * * * * *
+            REG     0000H     0008H     ABSOLUTE     "REG BANK 0"
+            DATA    0008H     0004H     UNIT         ?DT?LED
+            IDATA   000CH     0001H     UNIT         ?STACK
+
+            * * * * * * *   C O D E   M E M O R Y   * * * * * * *
+            CODE    0000H     0003H     ABSOLUTE     
+                    0003H     0008H                  *** GAP ***
+            CODE    000BH     0003H     ABSOLUTE     
+                    000EH     07F2H                  *** GAP ***
+            CODE    0800H     00F3H     UNIT         ?PR?TIME1?LED
+            CODE    08F3H     008CH     UNIT         ?C_C51STARTUP
+            CODE    097FH     0010H     UNIT         ?PR?TIME_INIT?LED
+            CODE    098FH     000EH     UNIT         ?PR?DELAY1S?LED
+            CODE    099DH     000DH     UNIT         ?C_INITSEG
+            CODE    09AAH     0008H     UNIT         ?PR?MAIN?LED
+
+
+
+OVERLAY MAP OF MODULE:   .\Objects\LED (?C_STARTUP)
+
+
+SEGMENT
+  +--> CALLED SEGMENT
+---------------------
+?C_C51STARTUP
+  +--> ?PR?MAIN?LED
+  +--> ?C_INITSEG
+
+?PR?MAIN?LED
+  +--> ?PR?TIME_INIT?LED
+
+
+
+SYMBOL TABLE OF MODULE:  .\Objects\LED (?C_STARTUP)
+
+  VALUE           TYPE          NAME
+  ----------------------------------
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  06/22/2019  01:21:18  PAGE 2
+
+
+
+  -------         MODULE        ?C_STARTUP
+  C:08F3H         SEGMENT       ?C_C51STARTUP
+  I:000CH         SEGMENT       ?STACK
+  C:0000H         PUBLIC        ?C_STARTUP
+  D:00E0H         SYMBOL        ACC
+  D:00F0H         SYMBOL        B
+  D:0083H         SYMBOL        DPH
+  D:0082H         SYMBOL        DPL
+  N:0000H         SYMBOL        IBPSTACK
+  N:0100H         SYMBOL        IBPSTACKTOP
+  N:0080H         SYMBOL        IDATALEN
+  C:08F6H         SYMBOL        IDATALOOP
+  N:0000H         SYMBOL        PBPSTACK
+  N:0100H         SYMBOL        PBPSTACKTOP
+  N:0000H         SYMBOL        PDATALEN
+  N:0000H         SYMBOL        PDATASTART
+  N:0000H         SYMBOL        PPAGE
+  N:0000H         SYMBOL        PPAGEENABLE
+  D:00A0H         SYMBOL        PPAGE_SFR
+  D:0081H         SYMBOL        SP
+  C:08F3H         SYMBOL        STARTUP1
+  N:0000H         SYMBOL        XBPSTACK
+  N:0000H         SYMBOL        XBPSTACKTOP
+  N:0000H         SYMBOL        XDATALEN
+  N:0000H         SYMBOL        XDATASTART
+  C:0000H         LINE#         126
+  C:08F3H         LINE#         133
+  C:08F5H         LINE#         134
+  C:08F6H         LINE#         135
+  C:08F7H         LINE#         136
+  C:08F9H         LINE#         185
+  C:08FCH         LINE#         196
+  -------         ENDMOD        ?C_STARTUP
+
+  -------         MODULE        LED
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  D:0090H         PUBLIC        P1
+  D:00A0H         PUBLIC        P2
+  D:00B0H         PUBLIC        P3
+  B:00A8H.7       PUBLIC        EA
+  C:097FH         PUBLIC        Time_Init
+  D:00A8H         PUBLIC        IE
+  D:00B8H         PUBLIC        IP
+  D:0008H         PUBLIC        flag
+  C:09AAH         PUBLIC        main
+  D:0098H         PUBLIC        SCON
+  D:0089H         PUBLIC        TMOD
+  D:0088H         PUBLIC        TCON
+  C:098FH         PUBLIC        delay1s
+  D:0009H         PUBLIC        led_bing
+  B:00A8H.1       PUBLIC        ET0
+  D:000AH         PUBLIC        flag_rev
+  D:008CH         PUBLIC        TH0
+  D:000BH         PUBLIC        time_cout
+  D:008AH         PUBLIC        TL0
+  B:0088H.4       PUBLIC        TR0
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  06/22/2019  01:21:18  PAGE 3
+
+
+  C:0800H         PUBLIC        time1
+  D:00C8H         PUBLIC        T2CON
+  D:00D0H         PUBLIC        PSW
+  -------         PROC          DELAY1S
+  -------         DO            
+  D:0005H         SYMBOL        a
+  D:0006H         SYMBOL        b
+  D:0007H         SYMBOL        c
+  -------         ENDDO         
+  C:098FH         LINE#         17
+  C:098FH         LINE#         18
+  C:098FH         LINE#         20
+  C:0991H         LINE#         21
+  C:0993H         LINE#         22
+  C:099BH         LINE#         23
+  C:099CH         LINE#         24
+  -------         ENDPROC       DELAY1S
+  -------         PROC          TIME_INIT
+  C:097FH         LINE#         26
+  C:097FH         LINE#         27
+  C:097FH         LINE#         29
+  C:0982H         LINE#         30
+  C:0985H         LINE#         31
+  C:0988H         LINE#         32
+  C:098AH         LINE#         33
+  C:098CH         LINE#         34
+  C:098EH         LINE#         35
+  -------         ENDPROC       TIME_INIT
+  -------         PROC          MAIN
+  C:09AAH         LINE#         37
+  C:09AAH         LINE#         38
+  C:09AAH         LINE#         40
+  C:09ADH         LINE#         41
+  C:09B0H         LINE#         42
+  C:09B0H         LINE#         43
+  C:09B0H         LINE#         45
+  -------         ENDPROC       MAIN
+  -------         PROC          TIME1
+  C:0800H         LINE#         49
+  C:0809H         LINE#         51
+  C:080CH         LINE#         52
+  C:080FH         LINE#         53
+  C:0811H         LINE#         54
+  C:081BH         LINE#         55
+  C:081BH         LINE#         56
+  C:081EH         LINE#         57
+  C:0822H         LINE#         58
+  C:0822H         LINE#         59
+  C:0826H         LINE#         60
+  C:0826H         LINE#         61
+  C:082EH         LINE#         62
+  C:0833H         LINE#         63
+  C:0833H         LINE#         65
+  C:0836H         LINE#         66
+  C:0838H         LINE#         67
+  C:0838H         LINE#         68
+  C:083AH         LINE#         70
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  06/22/2019  01:21:18  PAGE 4
+
+
+  C:083AH         LINE#         71
+  C:0842H         LINE#         72
+  C:0847H         LINE#         73
+  C:0847H         LINE#         74
+  C:084AH         LINE#         75
+  C:084CH         LINE#         76
+  C:084CH         LINE#         77
+  C:084CH         LINE#         78
+  C:0856H         LINE#         79
+  C:0856H         LINE#         80
+  C:0859H         LINE#         81
+  C:085CH         LINE#         82
+  C:085FH         LINE#         83
+  C:085FH         LINE#         84
+  C:0862H         LINE#         85
+  C:0867H         LINE#         86
+  C:0867H         LINE#         87
+  C:086BH         LINE#         88
+  C:086BH         LINE#         89
+  C:086EH         LINE#         90
+  C:0870H         LINE#         91
+  C:0872H         LINE#         93
+  C:0872H         LINE#         94
+  C:0875H         LINE#         95
+  C:0877H         LINE#         96
+  C:087EH         LINE#         97
+  C:087EH         LINE#         98
+  C:0881H         LINE#         99
+  C:0884H         LINE#         100
+  C:0884H         LINE#         101
+  C:0884H         LINE#         103
+  C:0886H         LINE#         104
+  C:088CH         LINE#         105
+  C:088CH         LINE#         106
+  C:0890H         LINE#         107
+  C:0890H         LINE#         108
+  C:0892H         LINE#         109
+  C:0895H         LINE#         110
+  C:0897H         LINE#         112
+  C:0897H         LINE#         113
+  C:089BH         LINE#         114
+  C:089BH         LINE#         115
+  C:08B3H         LINE#         116
+  C:08B9H         LINE#         117
+  C:08B9H         LINE#         118
+  C:08BCH         LINE#         119
+  C:08BEH         LINE#         120
+  C:08BEH         LINE#         121
+  C:08C0H         LINE#         123
+  C:08C0H         LINE#         124
+  C:08D8H         LINE#         125
+  C:08DDH         LINE#         126
+  C:08DDH         LINE#         127
+  C:08E0H         LINE#         128
+  C:08E2H         LINE#         129
+  C:08E2H         LINE#         130
+  C:08E2H         LINE#         131
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  06/22/2019  01:21:18  PAGE 5
+
+
+  C:08E9H         LINE#         132
+  C:08E9H         LINE#         133
+  C:08ECH         LINE#         134
+  C:08ECH         LINE#         135
+  C:08ECH         LINE#         136
+  C:08ECH         LINE#         137
+  C:08ECH         LINE#         138
+  -------         ENDPROC       TIME1
+  -------         ENDMOD        LED
+
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?DELAY1S?LED
+
+******************************************************************************
+* RESTRICTED VERSION WITH 0800H BYTE CODE SIZE LIMIT; USED: 0137H BYTE (15%) *
+******************************************************************************
+
+Program Size: data=13.0 xdata=0 code=440
+LINK/LOCATE RUN COMPLETE.  1 WARNING(S),  0 ERROR(S)
