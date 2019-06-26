@@ -3,10 +3,10 @@
 #include <reg52.h>
 #include <intrins.h>
 #define u8 unsigned char
-#define LED_LIUSHUI 1
-#define LED_BINGUP 1
-#define LED_FENG 1
-#define TIME 2
+#define LED_LIUSHUI 2
+#define LED_BINGUP 2
+#define LED_FENG 2
+#define TIME 0.5
 
 u8 time_cout = 0;
 u8 led_bing = 0;
@@ -39,7 +39,7 @@ void time1() interrupt 1
 	TH0=(65535-10000)/256;
 	TL0=(65535-10000)%256;
 	time_cout++;
-	if(time_cout >= TIME * 10 - 1) // Time s 执行一次
+	if(time_cout >= TIME * 100 - 1) // Time s 执行一次
 	{
 		time_cout = 0;
 		if(flag == 0) //mode 1 流水灯
@@ -122,12 +122,14 @@ void time1() interrupt 1
 				if(led_bing > 2 * LED_FENG) // 双向流水 LED_FENG 次
 				{
 					flag = 3;
+					led_bing = 0;
 				}
 			}
 		}
-		if(flah = 3) //mode3 霹雳灯
+		if(flag == 3) //mode3 霹雳灯
 		{
-			;
+			P2 = 0xfe;
+			flag = 0;
 		}
 	}
 }	
